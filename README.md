@@ -1,4 +1,4 @@
-# LumaProjectJS_2024_spring
+# AQA Playwright PetProject
 https://magento.softwaretestingboard.com/
 
 **How to start working in this project?**
@@ -7,10 +7,4 @@ https://magento.softwaretestingboard.com/
 
 2. Navigate to project root folder.
 
-3. Run command ```npm ci``` in terminal VScode.
-
-4. Run command ```npx playwright install``` in terminal VScode.
-
-**Attention!**
-
-Students are not allowed to install any libraries, plugins, etc. to avoid changing configuration files.
+3. Run command ```npx playwright install``` in terminal VScode.
