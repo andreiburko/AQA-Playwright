@@ -1,5 +1,6 @@
 import WhatsNewPage from "./whatsNewPage.js";
 import CreateAccountPage from "./createAccountPage.js";
+import LoginPage from "./loginPage.js";
 
 class HomePage {
   constructor (page) {
@@ -10,6 +11,7 @@ class HomePage {
     getWhatsNewLink: () => this.page.getByRole("listitem").filter({ hasText: "What's New" }),
     getCreateAnAccountLink: () => this.page.getByRole("link", { name: "Create an Account" }),
     getMainMenuLinks: (pageName) => this.page.getByText(pageName, { exact: true }),
+    getSignInLink: () => this.page.getByRole("link", { name: "Sign In ", exact: true }),
   }
 
   async open() {
@@ -30,6 +32,12 @@ class HomePage {
 
   async clickMainMenuLinks(pageName) {
     await this.locators.getMainMenuLinks(pageName).click();
+  }
+
+  async clickSignInLink() {
+    await this.locators.getSignInLink().click();
+
+    return new LoginPage(this.page);
   }
 }
 
