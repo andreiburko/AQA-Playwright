@@ -12,6 +12,7 @@ class HomePage {
     getCreateAnAccountLink: () => this.page.getByRole("link", { name: "Create an Account" }),
     getMainMenuLinks: (pageName) => this.page.getByText(pageName, { exact: true }),
     getSignInLink: () => this.page.getByRole("link", { name: "Sign In ", exact: true }),
+    getWelcomeMessage: () => this.page.locator("div.header span.logged-in"),
   }
 
   async open() {
