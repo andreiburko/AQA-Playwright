@@ -5,4 +5,4 @@ export const createRandomEmail = function() {
     userName += String.fromCharCode(randomNumber);
   }
   return `${userName}@gmail.com`;
-}
+};

@@ -16,6 +16,7 @@ export const NAVBAR_MENU_URLs_END_POINTS = [
 ];
 
 // Test data
+export const HOME_PAGE_TITLE = "Home Page";
 export const WHATS_NEW_PAGE_HEADER = "What's New";
 export const CREATE_ACCOUNT_PAGE_TITLE_AND_HEADER = "Create New Customer Account";
 export const CREATE_ACCOUNT_FORM_LABELS = ["First Name", "Last Name", "Email", "Password", "Confirm Password"];
@@ -41,5 +42,15 @@ export const NEW_USER_DATA = {
   passwordWithSpaces: {
     spacesLocation: ["starts", "ends", "starts and ends"],
     password: [" asdQWE123", "asdQWE123 ", "  asdQWE123  "],
+  },
+};
+
+export const EXISTING_USER_DATA = {
+  email: "andrei@test.com",
+  password: "Andrei111",
+  name: "Andrei",
+  lastName: "Tester",
+  get welcomeMessage() {
+    return `Welcome, ${this.name} ${this.lastName}!`;
   },
 };
