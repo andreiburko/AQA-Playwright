@@ -3,7 +3,9 @@ import HomePage from "../page_objects/homePage.js";
 import { BASE_URL,
   EXISTING_USER_DATA,
   HOME_PAGE_TITLE,
+  LOGIN_PAGE_EMPTY_FIELD_ERROR_MESSAGE,
   LOGIN_PAGE_END_POINT,
+  LOGIN_PAGE_FIELDS,
   LOGIN_PAGE_HEADER } from "../helpers/testData.js";
 
 test.describe("loginPage.spec", () => {
@@ -32,5 +34,21 @@ test.describe("loginPage.spec", () => {
     await expect(page).toHaveURL(BASE_URL);
     await expect(homePage.locators.getWelcomeMessage()).toHaveText(EXISTING_USER_DATA.welcomeMessage);
     await expect(page).toHaveTitle(HOME_PAGE_TITLE);
+  });
+
+  LOGIN_PAGE_FIELDS.forEach(fieldName => {
+    test(`Verify that user can't sign in with empty "${fieldName}" field, error message appears`, async ({ page }) => {
+      const homePage = new HomePage(page);
+      const loginPage = await homePage.clickSignInLink();
+
+      fieldName === "Email" ? null : await loginPage.fillEmailField(EXISTING_USER_DATA.email);
+      fieldName === "Password" ? null : await loginPage.fillPasswordField(EXISTING_USER_DATA.password);
+      await loginPage.clickSignInButton();
+
+      await expect(page).toHaveURL(BASE_URL + LOGIN_PAGE_END_POINT);
+      await expect(loginPage.locators.getPageHeader()).toHaveText(LOGIN_PAGE_HEADER);
+      await expect(loginPage.locators.getFieldErrorMessage(fieldName)).toBeVisible();
+      await expect(loginPage.locators.getFieldErrorMessage(fieldName)).toHaveText(LOGIN_PAGE_EMPTY_FIELD_ERROR_MESSAGE);
+    });
   });
 })
