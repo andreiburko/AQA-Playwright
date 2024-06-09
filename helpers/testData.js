@@ -30,6 +30,8 @@ export const CREATE_ACCOUNT_PAGE_PASSWORD_CONFIRMATION_ERROR = "Please enter the
 export const CREATE_ACCOUNT_PAGE_EMPTY_FIELD_ERROR_MESSAGE = "This is a required field.";
 export const NAVBAR_MENU = ["What's New", "Women", "Men", "Gear", "Training", "Sale"];
 export const LOGIN_PAGE_HEADER = "Customer Login";
+export const LOGIN_PAGE_FIELDS = ["Email", "Password"];
+export const LOGIN_PAGE_EMPTY_FIELD_ERROR_MESSAGE = "This is a required field.";
 
 // Login credentials
 export const NEW_USER_DATA = {
