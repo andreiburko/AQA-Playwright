@@ -1,6 +1,8 @@
 import WhatsNewPage from "./whatsNewPage.js";
 import CreateAccountPage from "./createAccountPage.js";
 import LoginPage from "./loginPage.js";
+import MenPage from "./menPage.js";
+import CartPage from "./cartPage.js";
 
 class HomePage {
   constructor (page) {
@@ -13,10 +15,16 @@ class HomePage {
     getMainMenuLinks: (pageName) => this.page.getByText(pageName, { exact: true }),
     getSignInLink: () => this.page.getByRole("link", { name: "Sign In ", exact: true }),
     getWelcomeMessage: () => this.page.locator("div.header span.logged-in"),
+    getMenMainMenuLink: () => this.page.locator('a[href$="/men.html"]'),
+    getCartLoader: () => this.page.getByAltText("Loading..."),
+    getCartIconLink: () => this.page.locator("a.showcart"),
+    getViewAndEditCartLink: () => this.page.getByRole("link", { name: "View and Edit Cart" }),
   }
 
   async open() {
     await this.page.goto("/");
+
+    return this;
   }
 
   async clickWhatsNewLink() {
@@ -39,6 +47,30 @@ class HomePage {
     await this.locators.getSignInLink().click();
 
     return new LoginPage(this.page);
+  }
+
+  async clickMenMainMenu() {
+    await this.locators.getMenMainMenuLink().click();
+
+    return new MenPage(this.page);
+  }
+
+  async waitLoaderIsHidden() {
+    await this.locators.getCartLoader().waitFor({ state: "hidden" });
+
+    return this;
+  }
+
+  async clickCartIconLink() {
+    await this.locators.getCartIconLink().click();
+
+    return this;
+  }
+
+  async clickViewAndEditCartLink() {
+    await this.locators.getViewAndEditCartLink().click();
+
+    return new CartPage(this.page);
   }
 }
 
