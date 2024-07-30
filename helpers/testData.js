@@ -6,6 +6,7 @@ export const WHATS_NEW_PAGE_END_POINT = "/what-is-new.html";
 export const CREATE_CUSTOMER_ACCOUNT_END_POINT = "/customer/account/create/";
 export const MY_ACCOUNT_PAGE_END_POINT = "/customer/account/";
 export const LOGIN_PAGE_END_POINT = "/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/";
+export const CART_PAGE_END_POINT = "/checkout/cart/";
 export const NAVBAR_MENU_URLs_END_POINTS = [
   "/what-is-new.html",
   "/women.html",
@@ -32,6 +33,25 @@ export const NAVBAR_MENU = ["What's New", "Women", "Men", "Gear", "Training", "S
 export const LOGIN_PAGE_HEADER = "Customer Login";
 export const LOGIN_PAGE_FIELDS = ["Email", "Password"];
 export const LOGIN_PAGE_EMPTY_FIELD_ERROR_MESSAGE = "This is a required field.";
+export const CART_PAGE_HEADER = "Shopping Cart";
+
+export const MEN_TOPS_PAGE_ADDED_IN_CART_ITEMS = [
+  {
+    name: "Tiberius Gym Tank",
+    size: "S",
+    color: "Yellow",
+  },
+  {
+    name: "Argus All-Weather Tank",
+    size: "M",
+    color: "Gray",
+  },
+  {
+    name: "Primo Endurance Tank",
+    size: "L",
+    color: "Red",
+  }
+];
 
 // Login credentials
 export const NEW_USER_DATA = {
